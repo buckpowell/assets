@@ -14,8 +14,6 @@ use yii\filters\VerbFilter;
  */
 class AccountController extends Controller
 {
-
-	
     /**
      * {@inheritdoc}
      */
@@ -37,8 +35,15 @@ class AccountController extends Controller
      */
     public function actionIndex()
     {
+		$id = $_SESSION['__id'];
 		
-
+		if(is_null($id) && $id!='') {
+	
+			$result = \Yii::$app->db->createCommand("CALL storedProcedureName(:id)") 
+						  ->bindValue(':paramName1' , $id )
+						  ->execute();
+		}
+		
         return $this->render('view', [
             'model' => $this->findModel(Yii::$app->user->identity->id),
         ]);
@@ -52,27 +57,8 @@ class AccountController extends Controller
      */
     public function actionView()
     {
-
         return $this->render('view', [
             'model' => $this->findModel(Yii::$app->user->identity->id),
-        ]);
-    }
-
-    /**
-     * Creates a new Account model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Account();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
         ]);
     }
 
@@ -97,20 +83,6 @@ class AccountController extends Controller
     }
 
     /**
-     * Deletes an existing Account model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the Account model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -119,6 +91,7 @@ class AccountController extends Controller
      */
     protected function findModel($id)
     {
+		
         if (($model = Account::findOne($id)) !== null) {
             return $model;
         }

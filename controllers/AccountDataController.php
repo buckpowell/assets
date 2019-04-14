@@ -35,47 +35,22 @@ class AccountDataController extends Controller
      */
     public function actionIndex()
     {
-		$id = $_SESSION['__id'];
-		
-       $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays a single UserData model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
+	$id = $_SESSION['__id'];
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
 
-    /**
-     * Creates a new UserData model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+/**
+     * Displays a single Account model.
+     * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionCreate()
+    public function actionView()
     {
-        $model = new UserData();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->asset_id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
+        return $this->render('view', [
+            'model' => $this->findModel(Yii::$app->user->identity->id),
         ]);
     }
 
@@ -86,8 +61,10 @@ class AccountDataController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate()
     {
+		$id = $_SESSION['__id'];
+		
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -97,20 +74,6 @@ class AccountDataController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Deletes an existing UserData model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**

@@ -17,13 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->asset_id], ['class' => 'btn btn-primary']) ?>
-
+        
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            
             'entry_date',
             'cash',
             'life_insurance',
@@ -36,13 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'mortages_owned',
             'accounts_receivable_doubt',
             'notes_relatives_friends',
+            'other_securities_not_marketable',
             'personal_property',
             'other_assets',
-			'total_assets',
-            
-            
-            
-     
+            'total_assets',
             'notes_to_banks',
             'notes_to_relatives',
             'notes_to_others',
@@ -53,11 +49,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'contract_accounts_payable',
             'cash_rent_owed',
             'other_liabilities',
-			'total_current_liabilities',
+            'total_current_liabilities',
             'mortgage_payable',
             'liens_payable',
             'other_debts',
-			'total_liabilities',
+            'total_liabilities',
             'net_worth',
             'total_net_worth',
         ],
