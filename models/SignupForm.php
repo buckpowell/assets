@@ -11,7 +11,6 @@ use yii\base\Model;
 class SignupForm extends Model
 {
     public $username;
-    public $email;
     public $password;
 	public $first_name;
 	public $mi;
@@ -28,16 +27,13 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 			['first_name', 'string', 'max' => 45],
 			['mi', 'string', 'max' => 2],
 			['last_name', 'string', 'max' => 45],
 			['suffix', 'string', 'max' => 45],
-			['dob', 'date', 'format' => 'php:Y-m-d'],
-			
-			
+
         ];
     }
  
@@ -54,8 +50,6 @@ class SignupForm extends Model
 			'mi' => 'Middle Initial',
 			'last_name' => 'Last Name',
 			'suffix' => 'Suffix',
-            'groups' => 'Security Groups',
-            'account_status' => 'Account Status',
         ];
     }
  

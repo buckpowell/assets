@@ -1,6 +1,9 @@
 <?php
+
 namespace app\models;
+
 use Yii;
+
 /**
  * This is the model class for table "user".
  *
@@ -37,6 +40,7 @@ class Account extends \yii\db\ActiveRecord
     {
         return 'user';
     }
+
     /**
      * {@inheritdoc}
      */
@@ -53,6 +57,7 @@ class Account extends \yii\db\ActiveRecord
             [['password', 'email'], 'string', 'max' => 100],
         ];
     }
+
     /**
      * {@inheritdoc}
      */
@@ -73,6 +78,8 @@ class Account extends \yii\db\ActiveRecord
             'business_phone' => 'Business Phone',
             'ssn' => 'SSN',
             'dob' => 'Birth Date',
+
         ];
     }
+
 }

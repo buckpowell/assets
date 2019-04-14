@@ -133,5 +133,17 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
+	
+	public function getFullName($id) {
+        $sql = " SELECT  concat(first_name, ' ', mi, ' ', last_name)  AS `name` FROM user " .
+                " WHERE id =:id";
+				
+        $db = Yii::$app->db->createCommand($sql);
+        $db->bindValue(':id', $id);
+        $result = $db->queryAll();
+	
+		
+		return $result[0]['name'];
+    }
  
 }

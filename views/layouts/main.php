@@ -33,16 +33,18 @@ AppAsset::register($this);
     ],
 ]);
  
+
 $menuItems = [
     ['label' => 'Home', 'url' => ['/site/index']],
 	
 ];
- 
+
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 } else {
 	$menuItems[] =['label' => 'Account', 'url' => ['/account/index']];
+	$menuItems[] =['label' => 'Account Data', 'url' => ['/account-data/index']];
     $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post')
         . Html::submitButton(
