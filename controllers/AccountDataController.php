@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\UserData;
+use app\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,9 +36,17 @@ class AccountDataController extends Controller
      */
     public function actionIndex()
     {
-	$id = $_SESSION['__id'];
-        return $this->render('view', [
-            'model' => $this->findModel($id),
+		
+		$id = $_SESSION['__id'];
+		
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->asset_id]);
+        }
+
+        return $this->render('update', [
+            'model' => $model,
         ]);
     }
 

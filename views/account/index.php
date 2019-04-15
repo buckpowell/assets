@@ -1,32 +1,55 @@
 <?php
 
+use yii\helpers\Html;
+use yii\grid\GridView;
+
 /* @var $this yii\web\View */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'My Yii Application';
+$this->title = 'Accounts';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-index">
+<div class="account-index">
 
-    <div class="jumbotron">
-        <h1>Account!</h1>
-    </div>
-	
-    <div class="body-content">
+    <h1><?= Html::encode($this->title) ?></h1>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+    <p>
+        <?= Html::a('Create Account', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-            </div>
-           
-        </div>
 
-    </div>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'date',
+            'first_name',
+            'mi',
+            'last_name',
+            //'suffix',
+            //'address',
+            //'city',
+            //'us_state',
+            //'zip',
+            //'phone',
+            //'business_phone',
+            //'ssn',
+            //'dob',
+            //'dep',
+            //'username',
+            //'password',
+            //'email:email',
+            //'password_hash',
+            //'auth_key',
+            //'status',
+            //'created_at',
+            //'updated_at',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+
+
 </div>
-
-
-
-

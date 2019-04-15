@@ -40,16 +40,24 @@ use yii\widgets\ActiveForm;
 				<?= $form->field($model, 'zip')->textInput() ?>
 			</div>
 			<div class="col-sm-2">
-				<?= $form->field($model, 'phone')->textInput() ?>
+				<?= $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
+				'mask' => '(999) 999-9999',
+			]) ?>
 			</div>
 			<div class="col-sm-2">
-				<?= $form->field($model, 'business_phone')->textInput() ?>
+				<?= $form->field($model, 'business_phone')->widget(\yii\widgets\MaskedInput::className(), [
+				'mask' => '(999) 999-9999',
+			]) ?>
 			</div>
 			<div class="col-sm-2">
-				<?= $form->field($model, 'ssn')->textInput() ?>
+				<?= $form->field($model, 'ssn')->widget(\yii\widgets\MaskedInput::className(), [
+				'mask' => '999-99-9999',
+			]) ?>
 			</div>
 			<div class="col-sm-2">
-				<?= $form->field($model, 'dob')->textInput() ?>
+				<?= $form->field($model, 'dob')->widget(\yii\widgets\MaskedInput::className(), [
+				'mask' => '99/99/9999',
+			]) ?>
 			</div>
 		</div>
 	</div>

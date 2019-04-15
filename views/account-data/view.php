@@ -2,11 +2,14 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\UserData */
+$id = $_SESSION['__id'];
 
-$this->title = $model->asset_id;
+$title = User::getFullName($id);
+$this->title = 'View Account Data: ' . $title;
 $this->params['breadcrumbs'][] = ['label' => 'Account Data', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
