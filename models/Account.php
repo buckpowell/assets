@@ -48,6 +48,7 @@ class Account extends \yii\db\ActiveRecord
     {
         return [
             [['date', 'dob', 'created_at', 'updated_at'], 'safe'],
+			[['dob'], 'date', 'format' => 'php:Y-m-d',],
             [['first_name', 'last_name', 'suffix', 'address', 'city', 'username'], 'string', 'max' => 45],
             [['mi', 'us_state'], 'string', 'max' => 2],
             [['zip'], 'string', 'max' => 10],
@@ -90,4 +91,12 @@ class Account extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+	
+	public function getAccountData($id) {
+		$query = "SELECT * FROM user WHERE id = :id";
+		$db = Yii::$app->db->createCommand($query);
+        $db->bindValue(':id', $id);
+        $result = $db->queryOne();
+        return $result;
+	}
 }

@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\UserData;
 use app\models\User;
+use app\models\Account;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -36,9 +37,8 @@ class AccountDataController extends Controller
      */
     public function actionIndex()
     {
-		
 		$id = $_SESSION['__id'];
-		
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -46,7 +46,7 @@ class AccountDataController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $model, 
         ]);
     }
 
@@ -58,8 +58,12 @@ class AccountDataController extends Controller
      */
     public function actionView()
     {
+		$id = $_SESSION['__id'];
+        $account =  Account::findOne($id);
+	
         return $this->render('view', [
-            'model' => $this->findModel(Yii::$app->user->identity->id),
+            'model' => $this->findModel($id),
+			'account' => $account
         ]);
     }
 

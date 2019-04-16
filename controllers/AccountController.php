@@ -34,10 +34,7 @@ class AccountController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
-		
-		
-		
+    {	
 		$id = $_SESSION['__id'];
         $model = $this->findModel($id);
 		
