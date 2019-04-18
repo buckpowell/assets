@@ -108,9 +108,8 @@ class AccountDataController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 	
-	public function actionPrint() {
+	public function actionPrint($id) {
 		
-		$id = $_SESSION['__id'];
 		$account = Account::findOne($id);
 		$model = $this->findModel($id);
 		
