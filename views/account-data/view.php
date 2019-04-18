@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </tr>
 <tr>
 <td>
-<label for="cash">Cash:</label>
+<label for="cash">Cash on Hand & in Banks:</label>
 </td>
 <td class="text-right">
 <?php echo '$' . $model->cash;?>
@@ -74,10 +74,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="life_insurance">Life Insurance:</label>
+<label for="cetificates_of_deposit">Certificates of Deposit:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->life_insurance;?>
+<?php echo '$' . $model->certificates_of_deposit;?>
 </td>
 <td>
 <label for="notes_to_relatives">Notes To Realtives & Friends:</label><?php echo '$' . $model->notes_to_relatives;?>
@@ -89,10 +89,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="securities">U.S. Gov. Securities:</label>
+<label for="securities">Cash Value of Life Insurance Policies:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->securities;?>
+<?php echo '$' . $model->life_insurance;?>
 </td>
 <td>
 <label for="notes_due_others">Notes Due Others:</label>
@@ -106,10 +106,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="accts_receiveable_good">Other Marketable Securities:</label>
+<label for="stocks_and_bonds">Stocks & Bonds:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->other_securities;?>
+<?php echo '$' . $model->securities;?>
 </td>
 <td>
 <label for="accts_payable">Accounts & Bills Payable:</label>
@@ -121,10 +121,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="assets_conv_to_cash">Notes & Accts Receivable(Good):</label>
+<label for="other_securities">Other Marketable Securities</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->accounts_receivable_good;?>
+<?php echo '$' . $model->other_securities;?>
 </td>
 <td>
 <label for="accts_payable">Unpaid Income Tax Due(Federal/State):</label>
@@ -136,7 +136,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="assets_conv_to_cash">Other Assets Conv to Cash:</label>
+<label for="accounts_receivable">Notes & Accts Receivable:</label>
 </td>
 <td class="text-right">
 <?php echo '$' . $model->assets_conv_to_cash;?>
@@ -151,10 +151,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-&nbsp;
+<label for="accts_payable">Other Assets Conv. To Cash:</label>
 </td>
 <td class="text-right">
-&nbsp;
+<?php echo '$' . $model->other_assets;?>
 </td>
 <td>
 <label for="accts_payable">Loans on Life Insurance Policies:</label>
@@ -166,10 +166,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-&nbsp;
+<label for="accts_payable">Other Investments:</label>
 </td>
 <td class="text-right">
-&nbsp;
+<?php echo '$' . $model->other_investments;?>
 </td>
 <td>
 <label for="accts_payable">Contract Accts Payable:</label>
@@ -196,10 +196,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="accts_payable">TOTAL CURRENT ASSETS:</label>
+&nbsp;
 </td>
 <td class="text-right">
-<?php echo '$' . $model->total_current_assets;?>
+&nbsp;
 </td>
 <td>
 <label for="accts_payable">Other Liabilities Due:</label>
@@ -211,10 +211,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="accts_payable">Real Estate Owned:</label>
+&nbsp;
 </td>
 <td class="text-right">
-<?php echo '$' . $model->real_estate;?>
+&nbsp;
 </td>
 <td>
 &nbsp;
@@ -226,25 +226,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="accts_payable">Mortgages & Contracts Owned:</label>
+<label for="accts_payable">TOTAL CURRENT ASSETS:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->mortages_owned;?>
-</td>
-<td>
-&nbsp;
-</td>
-<td class="text-right">
-&nbsp;
-</td>
-</tr>
-
-<tr>
-<td>
-<label for="accts_payable">Notes & Accts Recieveable(Doubt):</label>
-</td>
-<td class="text-right">
-<?php echo '$' . $model->accounts_receivable_doubt;?>
+<?php echo '$' . $model->total_current_assets;?>
 </td>
 <td>
 <label for="accts_payable">TOTAL CURRENT LIABILITIES:</label>
@@ -256,28 +241,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="accts_payable">Notes Due From Relatives & Friends:</label>
+<label for="accts_payable">Real Estate Owned:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->notes_relatives_friends;?>
+<?php echo '$' . $model->real_estate;?>
 </td>
 <td>
 <label for="accts_payable">Real Estate Mortgage Payable:</label>
-</td>
-<td class="text-right">
-<?php echo '$' . $model->mortgage_payable;?>
-</td>
-</tr>
-
-<tr>
-<td>
-<label for="accts_payable">Other Securitities (Not Marketable):</label>
-</td>
-<td class="text-right">
-<?php echo '$' . $model->other_securities_not_marketable;?>
-</td>
-<td>
-<label for="accts_payable">Loans & Assessments Payable:</label>
 </td>
 <td class="text-right">
 <?php echo '$' . $model->liens_payable;?>
@@ -286,10 +256,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
-<label for="accts_payable">Personal Propery:</label>
+<label for="accts_payable">Mortgages & Contracts Owned:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->personal_property;?>
+<?php echo '$' . $model->mortages_owned;?>
+</td>
+<td>
+<label for="accts_payable">Liens & Assessments Payable:</label>
+</td>
+<td class="text-right">
+<?php echo '$' . $model->liens_payable;?>
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="accts_payable">Notes & Accts Receivable(Doubt):</label>
+</td>
+<td class="text-right">
+<?php echo '$' . $model->accounts_receivable_doubt;?>
 </td>
 <td>
 <label for="accts_payable">Other Debts:</label>
@@ -301,46 +286,61 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <tr>
 <td>
+<label for="accts_payable">Notes Due From Relatives & Friends:</label>
+</td>
+<td class="text-right">
+<?php echo '$' . $model->notes_relatives_friends;?>
+</td>
+<td>
+&nbsp;
+</td>
+<td class="text-right">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="accts_payable">Other Secirities (Not Marketable):</label>
+</td>
+<td class="text-right">
+<?php echo '$' . $model->other_securities_not_marketable;?>
+</td>
+<td>
+&nbsp;
+</td>
+<td class="text-right">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="personal_property">Personal Property:</label>
+</td>
+<td class="text-right">
+<?php echo '$' . $model->personal_property;?>
+</td>
+<td>
+&nbsp;
+</td>
+<td class="text-right">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
 <label for="accts_payable">Other Assets:</label>
 </td>
 <td class="text-right">
 <?php echo '$' . $model->other_assets;?>
 </td>
 <td>
-&nbsp;
-</td>
-<td class="text-right">
-&nbsp;
-</td>
-</tr>
 
-<tr>
-<td>
-&nbsp;
 </td>
 <td class="text-right">
 &nbsp;
-</td>
-<td>
-<label for="accts_payable">TOTAL LIABILITIES:</label>
-</td>
-<td class="text-right">
-<?php echo '$' . $model->total_liabilities;?>
-</td>
-</tr>
-
-<tr>
-<td>
-&nbsp;
-</td>
-<td class="text-right">
-&nbsp;
-</td>
-<td>
-<label for="accts_payable">NET WORTH:</label>
-</td>
-<td class="text-right">
-<?php echo '$' . $model->net_worth;?>
 </td>
 </tr>
 
@@ -352,18 +352,25 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php echo '$' . $model->total_assets;?>
 </td>
 <td>
-<label for="accts_payable">TOTAL LIABILITIES & NET WORTH:</label>
+<label for="accts_payable">TOTAL LIABILITIES:</label>
 </td>
 <td class="text-right">
-<?php echo '$' . $model->total_net_worth;?>
+<?php echo '$' . $model->total_liabilities;?>
 </td>
 </tr>
 
+<tr>
 
+<td colspan="2">
+<label for="accts_payable">NET WORTH:</label>
+</td>
+<td colspan="2" class="text-right">
+<?php echo '$' . $model->net_worth;?>
+</td>
+</tr>
 </table>
 
 </div>
 <p>
         <?= Html::a('Update', ['update', 'id' => $model->asset_id], ['class' => 'btn btn-primary']) ?>
-        
-    </p>
+        <?= Html::a('Print', ['print', 'id' => $model->asset_id], ['class' => 'btn btn-primary']) ?>

@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone',
             'business_phone',
             'ssn',
-            'dob',
+            'dob:date',
  
         ],
     ]) ?>

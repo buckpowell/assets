@@ -10,11 +10,13 @@ use Yii;
  * @property int $asset_id
  * @property string $entry_date
  * @property double $cash
+ * @property double $certificates_of_deposit
  * @property double $life_insurance
  * @property double $securities
  * @property double $other_securities
  * @property double $accounts_receivable_good
  * @property double $assets_conv_to_cash
+ * @property double $other_investments
  * @property double $total_current_assets
  * @property double $real_estate
  * @property double $mortages_owned
@@ -40,7 +42,7 @@ use Yii;
  * @property double $other_debts
  * @property double $total_liabilities
  * @property double $net_worth
- * @property double $total_net_worth
+ *
  */
 class UserData extends \yii\db\ActiveRecord
 {
@@ -61,7 +63,7 @@ class UserData extends \yii\db\ActiveRecord
             [['asset_id'], 'required'],
             [['asset_id'], 'integer'],
             [['entry_date'], 'safe'],
-            [['cash', 'life_insurance', 'securities', 'other_securities', 'accounts_receivable_good', 'assets_conv_to_cash', 'total_current_assets', 'real_estate', 'mortages_owned', 'accounts_receivable_doubt', 'notes_relatives_friends', 'other_securities_not_marketable', 'personal_property', 'other_assets', 'total_assets', 'notes_to_banks', 'notes_to_relatives', 'notes_to_others', 'accounts_payable', 'unpaid_income_tax', 'other_unpaid_tax', 'loans_on_life_insurance', 'contract_accounts_payable', 'cash_rent_owed', 'other_liabilities', 'total_current_liabilities', 'mortgage_payable', 'liens_payable', 'other_debts', 'total_liabilities', 'net_worth', 'total_net_worth'], 'number'],
+            [['cash', 'certificates_of_deposit', 'life_insurance', 'securities', 'other_securities', 'accounts_receivable_good', 'assets_conv_to_cash', 'other_investments','total_current_assets', 'real_estate', 'mortages_owned', 'accounts_receivable_doubt', 'notes_relatives_friends', 'other_securities_not_marketable', 'personal_property', 'other_assets', 'total_assets', 'notes_to_banks', 'notes_to_relatives', 'notes_to_others', 'accounts_payable', 'unpaid_income_tax', 'other_unpaid_tax', 'loans_on_life_insurance', 'contract_accounts_payable', 'cash_rent_owed', 'other_liabilities', 'total_current_liabilities', 'mortgage_payable', 'liens_payable', 'other_debts', 'total_liabilities', 'net_worth'], 'number'],
             [['asset_id'], 'unique'],
         ];
     }
@@ -75,11 +77,13 @@ class UserData extends \yii\db\ActiveRecord
             'asset_id' => 'Asset ID',
             'entry_date' => 'Entry Date',
             'cash' => 'Cash',
+			'certificates_of_deposit' => 'Certificates of Deposit',
             'life_insurance' => 'Life Insurance',
-            'securities' => 'Securities',
+            'securities' => 'Stocks & Bonds',
             'other_securities' => 'Other Securities',
             'accounts_receivable_good' => 'Accts Receivable Good',
             'assets_conv_to_cash' => 'Assets Conv To Cash',
+			'other_investments' => 'Other Investments',
             'total_current_assets' => 'Total Current Assets',
             'real_estate' => 'Real Estate',
             'mortages_owned' => 'Mortages Owned',
@@ -105,18 +109,19 @@ class UserData extends \yii\db\ActiveRecord
             'other_debts' => 'Other Debts',
             'total_liabilities' => 'Total Liabilities',
             'net_worth' => 'Net Worth',
-            'total_net_worth' => 'Total Net Worth',
         ];
     }
 	
 	public function afterFind() {
         parent::afterFind();
         $this->total_current_assets = $this->cash + 
+									  $this->certificates_of_deposit +
 									  $this->life_insurance +
 									  $this->securities +
 									  $this->other_securities +
 									  $this->accounts_receivable_good +
-									  $this->assets_conv_to_cash;
+									  $this->assets_conv_to_cash +
+									  $this->other_investments;
 		$this->total_assets = $this->cash + 
 									  $this->total_current_assets +
 									  $this->real_estate +
@@ -150,6 +155,5 @@ class UserData extends \yii\db\ActiveRecord
 									$this->liens_payable +
 									$this->other_debts;
 		$this->net_worth = $this->total_assets - $this->total_liabilities;
-		$this->total_net_worth = $this->net_worth;
     }
 }

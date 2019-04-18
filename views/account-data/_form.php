@@ -18,6 +18,9 @@ use yii\widgets\ActiveForm;
 			<?= $form->field($model, 'cash')->textInput() ?>
 		</div>
 		<div class="col-md-2">
+			<?= $form->field($model, 'certificates_of_deposit')->textInput() ?>
+		</div>
+		<div class="col-md-2">
 			<?= $form->field($model, 'life_insurance')->textInput() ?>
 		</div>
 		<div class="col-md-2">
@@ -31,6 +34,9 @@ use yii\widgets\ActiveForm;
 		</div>
 		<div class="col-md-2">
 			<?= $form->field($model, 'assets_conv_to_cash')->textInput() ?>
+		</div>
+		<div class="col-md-2">
+			<?= $form->field($model, 'other_investments')->textInput() ?>
 		</div>
 	</div>
 		<div class="row">

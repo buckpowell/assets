@@ -49,15 +49,13 @@ use yii\widgets\ActiveForm;
 				'mask' => '(999) 999-9999',
 			]) ?>
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<?= $form->field($model, 'ssn')->widget(\yii\widgets\MaskedInput::className(), [
 				'mask' => '999-99-9999',
 			]) ?>
 			</div>
-			<div class="col-sm-2">
-				<?= $form->field($model, 'dob')->widget(\yii\widgets\MaskedInput::className(), [
-				'mask' => '99/99/9999',
-			]) ?>
+			<div class="col-sm-3">
+				<?= $form->field($model, 'dob')->input('date_of_birth',['placeholder' => "Enter Date of Birth (MM/DD/YYYY)",'class' => 'form-control']) ?>
 			</div>
 		</div>
 	</div>

@@ -92,11 +92,15 @@ class Account extends \yii\db\ActiveRecord
         ];
     }
 	
-	public function getAccountData($id) {
-		$query = "SELECT * FROM user WHERE id = :id";
-		$db = Yii::$app->db->createCommand($query);
-        $db->bindValue(':id', $id);
-        $result = $db->queryOne();
-        return $result;
+	/**
+ * @inheritdoc
+ */
+
+	
+	public function beforeValidate()
+	{
+        $this->dob = date('Y-m-d', strtotime($this->dob));
+		return parent::beforeValidate();
 	}
+
 }
