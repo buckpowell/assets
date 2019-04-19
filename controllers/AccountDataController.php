@@ -179,7 +179,7 @@ class AccountDataController extends Controller
 		$html .='<td><label for="other_investments">Other Investments:</label></td><td align="right">' . '$' . number_format($model->other_investments,0) . '</td><td  style="padding-left: 10px;">Contract Accts Payable:</td><td align="right">' . '$' .number_format($model->contract_accounts_payable,0).'</td>';
 		$html .='</tr>';
 		$html.='<tr>';
-		$html .='<td><label for="blank">&nbsp;</label></td><td align="right">' . '$' .number_format($model->cash_rent_owed,0).'</td>';
+		$html .='<td>&nbsp;</td><td align="right"></td><td  style="padding-left: 10px;">Mortgage/Rent Due:</td><td align="right">' . '$' .number_format($model->cash_rent_owed,0).'</td>';
 		$html .='</tr>';
 		$html.='<tr>';
 		$html .='<td><label for="blank">&nbsp;</label></td><td>&nbsp;</td><td style="padding-left: 10px;"><label for="blank">Other Liabilities Due</label></td><td align="right">' . '$' .number_format($model->other_liabilities,0).'</td>';

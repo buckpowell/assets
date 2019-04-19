@@ -122,8 +122,7 @@ class UserData extends \yii\db\ActiveRecord
 									  $this->accounts_receivable_good +
 									  $this->assets_conv_to_cash +
 									  $this->other_investments;
-		$this->total_assets = $this->cash + 
-									  $this->total_current_assets +
+		$this->total_assets =		  $this->total_current_assets +
 									  $this->real_estate +
 									  $this->mortages_owned +
 									  $this->accounts_receivable_doubt +
