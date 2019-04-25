@@ -150,7 +150,7 @@ use yii\widgets\ActiveForm;
 	</div>
 	<div class="row">
 		<div class="col-md-2">
-				<?= $form->field($model, 'mortages_owned')->textInput(['style' => 'text-align: right'])->label('Mortgages Owned') ?>
+				<?= $form->field($model, 'mortgages_owned')->textInput(['style' => 'text-align: right'])->label('Mortgages Owned') ?>
 		</div>
 		<div class="col-md-2">
 			&nbsp;

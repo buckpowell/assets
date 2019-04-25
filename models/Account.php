@@ -18,10 +18,8 @@ use Yii;
  * @property string $us_state
  * @property string $zip
  * @property string $phone
- * @property string $business_phone
  * @property string $ssn
  * @property string $dob
- * @property string $dep
  * @property string $username
  * @property string $password
  * @property string $email
@@ -52,10 +50,10 @@ class Account extends \yii\db\ActiveRecord
             [['first_name', 'last_name', 'suffix', 'address', 'city', 'username'], 'string', 'max' => 45],
             [['mi', 'us_state'], 'string', 'max' => 2],
             [['zip'], 'string', 'max' => 10],
-            [['phone', 'business_phone'], 'string', 'max' => 14],
+            [['phone'], 'string', 'max' => 14],
             [['ssn'], 'string', 'max' => 11],
-            [['dep', 'password_hash', 'auth_key'], 'string', 'max' => 255],
-            [['password', 'email'], 'string', 'max' => 100],
+            [['password_hash', 'auth_key'], 'string', 'max' => 255],
+            [['password'], 'string', 'max' => 100],
             [['status'], 'string', 'max' => 3],
         ];
     }
@@ -77,13 +75,10 @@ class Account extends \yii\db\ActiveRecord
             'us_state' => 'State',
             'zip' => 'Zip',
             'phone' => 'Phone',
-            'business_phone' => 'Business Phone',
             'ssn' => 'SSN',
             'dob' => 'Birth Date',
-            'dep' => 'Dep',
             'username' => 'Username',
             'password' => 'Password',
-            'email' => 'Email',
             'password_hash' => 'Password Hash',
             'auth_key' => 'Auth Key',
             'status' => 'Status',

@@ -60,13 +60,12 @@ class AccountDataController extends Controller
     public function actionView()
     {
 		$id = $_SESSION['__id'];
-       /* $account =  Account::findOne($id);
+        $account =  Account::findOne($id);
 	
         return $this->render('view', [
             'model' => $this->findModel($id),
 			'account' => $account
-        ]);*/
-		$this->actionPrint($id);
+        ]);
 		
     }
 
@@ -146,7 +145,7 @@ class AccountDataController extends Controller
 		$html.= '</tr>';
 		$html .= '<tr>';
 		$html.= '<td>City, State Zip : ' . $account->city . ', ' . $account->us_state . ' ' .$account->zip . '</td>';
-		$html.= '<td>phone: ' . $account->phone . '</td>';
+		$html.= '<td>Phone: ' . $account->phone . '</td>';
 		$html.= '</tr>';
 		$html .= '</table>';
 		$html .='<hr>';
@@ -191,7 +190,7 @@ class AccountDataController extends Controller
 		$html .='<td><label for="real_estate_owned">Real Estate Owned:</label></td><td align="right">' . '$' . number_format($model->real_estate,0) . '</td><td style="padding-left: 10px;">Real Estate Mortgage Payable:</td><td align="right">' . '$' .number_format($model->mortgage_payable,0).'</td>';
 		$html .='</tr>';
 		$html.='<tr>';
-		$html .='<td><label for="mortgages_and contracts_owned">Mortgages & Contracts Owned:</label></td><td align="right">' . '$' . number_format($model->mortages_owned,0) . '</td><td style="padding-left: 10px;">Liens & Assessments Payable:</td><td align="right">' . '$' .number_format($model->liens_payable,0).'</td>';
+		$html .='<td><label for="mortgages_and contracts_owned">Mortgages & Contracts Owned:</label></td><td align="right">' . '$' . number_format($model->mortgages_owned,0) . '</td><td style="padding-left: 10px;">Liens & Assessments Payable:</td><td align="right">' . '$' .number_format($model->liens_payable,0).'</td>';
 		$html .='</tr>';
 		$html.='<tr>';
 		$html .='<td><label for="accts_receiveabla">Other Securities(Not Marketable):</label></td><td align="right">' . '$' . number_format($model->accounts_receivable_doubt,0) . '</td><td style="padding-left: 10px;">Other Debts:</td><td align="right">' . '$' .number_format($model->other_debts,0).'</td>';
@@ -210,9 +209,12 @@ class AccountDataController extends Controller
 		$html .='</tr>';
 		$html.='<tr>';
 		$html .='<td><label for="total_assets"><b>NET WORTH(Total Assets - Total Liabilities)</b></label></td><td align="right">' . '$' . number_format($model->net_worth,0) . '</td>';
-		$html .= '</tr></table>';
+		$html .= '</tr>';
+		$html .='</table>';
 		$html .='</body>';
 		$html .='</html>';
+		
+		
 	
 		$mpdf->SetProtection(array('print'));
 		$mpdf->SetTitle("Financial Statement");

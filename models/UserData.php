@@ -63,7 +63,7 @@ class UserData extends \yii\db\ActiveRecord
             [['asset_id'], 'required'],
             [['asset_id'], 'integer'],
             [['entry_date'], 'safe'],
-            [['cash', 'certificates_of_deposit', 'life_insurance', 'securities', 'other_securities', 'accounts_receivable_good', 'assets_conv_to_cash', 'other_investments','total_current_assets', 'real_estate', 'mortages_owned', 'accounts_receivable_doubt', 'notes_relatives_friends', 'other_securities_not_marketable', 'personal_property', 'other_assets', 'total_assets', 'notes_to_banks', 'notes_to_relatives', 'notes_to_others', 'accounts_payable', 'unpaid_income_tax', 'other_unpaid_tax', 'loans_on_life_insurance', 'contract_accounts_payable', 'cash_rent_owed', 'other_liabilities', 'total_current_liabilities', 'mortgage_payable', 'liens_payable', 'other_debts', 'total_liabilities', 'net_worth'], 'number'],
+            [['cash', 'certificates_of_deposit', 'life_insurance', 'securities', 'other_securities', 'accounts_receivable_good', 'assets_conv_to_cash', 'other_investments','total_current_assets', 'real_estate', 'mortgages_owned', 'accounts_receivable_doubt', 'notes_relatives_friends', 'other_securities_not_marketable', 'personal_property', 'other_assets', 'total_assets', 'notes_to_banks', 'notes_to_relatives', 'notes_to_others', 'accounts_payable', 'unpaid_income_tax', 'other_unpaid_tax', 'loans_on_life_insurance', 'contract_accounts_payable', 'cash_rent_owed', 'other_liabilities', 'total_current_liabilities', 'mortgage_payable', 'liens_payable', 'other_debts', 'total_liabilities', 'net_worth'], 'number'],
             [['asset_id'], 'unique'],
         ];
     }
@@ -86,7 +86,7 @@ class UserData extends \yii\db\ActiveRecord
 			'other_investments' => 'Other Investments',
             'total_current_assets' => 'Total Current Assets',
             'real_estate' => 'Real Estate',
-            'mortages_owned' => 'Mortages Owned',
+            'mortgages_owned' => 'Mortages Owned',
             'accounts_receivable_doubt' => 'Accts Receivable Doubt',
             'notes_relatives_friends' => 'Notes Relatives Friends',
             'other_securities_not_marketable' => 'Unmarketable Securities',
@@ -124,7 +124,7 @@ class UserData extends \yii\db\ActiveRecord
 									  $this->other_investments;
 		$this->total_assets =		  $this->total_current_assets +
 									  $this->real_estate +
-									  $this->mortages_owned +
+									  $this->mortgages_owned +
 									  $this->accounts_receivable_doubt +
 									  $this->notes_relatives_friends +
 									  $this->other_securities_not_marketable +

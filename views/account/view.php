@@ -33,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'us_state',
             'zip',
             'phone',
-            'business_phone',
             'ssn',
             'dob:date',
  
